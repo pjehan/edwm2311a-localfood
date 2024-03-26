@@ -66,12 +66,12 @@ class Place
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): ?Type
     {
         return $this->type;
     }
 
-    public function setType(string $type): static
+    public function setType(Type $type): static
     {
         $this->type = $type;
 
