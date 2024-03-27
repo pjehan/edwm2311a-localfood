@@ -26,4 +26,8 @@ return [
         'version' => '5.3.3',
         'type' => 'css',
     ],
+    'bootswatch/dist/minty/bootstrap.min.css' => [
+        'version' => '5.3.3',
+        'type' => 'css',
+    ],
 ];
