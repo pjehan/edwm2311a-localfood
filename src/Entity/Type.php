@@ -4,6 +4,6 @@ namespace App\Entity;
 
 enum Type: string
 {
-    case PointOfSale = 'POS';
-    case Producer = 'PROD';
+    case PointOfSale = 'Point de vente';
+    case Producer = 'Producteur';
 }
