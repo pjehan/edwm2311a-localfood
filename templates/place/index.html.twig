@@ -25,7 +25,7 @@
                 <td>{{ place.type.value }}</td>
                 <td>{{ place.address }}</td>
                 <td>
-                    <a href="{{ path('app_place_show', {'id': place.id}) }}">show</a>
+                    <a href="{{ path('app_place_show', {'slug': place.slug}) }}">show</a>
                     <a href="{{ path('app_place_edit', {'id': place.id}) }}">edit</a>
                 </td>
             </tr>

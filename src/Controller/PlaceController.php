@@ -42,7 +42,7 @@ class PlaceController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_place_show', methods: ['GET'])]
+    #[Route('/{slug}', name: 'app_place_show', methods: ['GET'])]
     public function show(Place $place): Response
     {
         return $this->render('place/show.html.twig', [

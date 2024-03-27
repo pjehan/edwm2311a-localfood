@@ -21,6 +21,7 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $clarisseGarden->setOwner($this->getReference('john_doe'));
         $clarisseGarden->addCategory($this->getReference('fruits_and_vegetables'));
         $clarisseGarden->addCategory($this->getReference('meat_and_fish'));
+        $clarisseGarden->setCreatedAt(new \DateTimeImmutable('2021-01-01 10:00:00'));
         $manager->persist($clarisseGarden);
 
         $janeBakery = new Place();
@@ -32,6 +33,7 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $janeBakery->setOwner($this->getReference('jane_doe'));
         $janeBakery->addCategory($this->getReference('dairy_products'));
         $janeBakery->addCategory($this->getReference('drinks'));
+        $janeBakery->setCreatedAt(new \DateTimeImmutable('2021-01-02 10:00:00'));
         $manager->persist($janeBakery);
 
         $janeOrchard = new Place();
@@ -42,6 +44,7 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $janeOrchard->setType(Type::Producer);
         $janeOrchard->setOwner($this->getReference('jane_doe'));
         $janeOrchard->addCategory($this->getReference('fruits_and_vegetables'));
+        $janeOrchard->setCreatedAt(new \DateTimeImmutable('2021-01-03 10:00:00'));
         $manager->persist($janeOrchard);
 
         $manager->flush();
