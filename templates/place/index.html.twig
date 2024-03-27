@@ -1,41 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Place index{% endblock %}
+{% block title %}{{ parent() }} - Liste des lieux{% endblock %}
 
 {% block body %}
-    <h1>Place index</h1>
+    <h1>Liste des lieux</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Address</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <a href="{{ path('app_place_new') }}" class="btn btn-primary">Ajouter</a>
+
+    <hr>
+
+    <section class="row">
         {% for place in places %}
-            <tr>
-                <td>{{ place.id }}</td>
-                <td>{{ place.name }}</td>
-                <td>{{ place.description }}</td>
-                <td>{{ place.type.value }}</td>
-                <td>{{ place.address }}</td>
-                <td>
-                    <a href="{{ path('app_place_show', {'slug': place.slug}) }}">show</a>
-                    <a href="{{ path('app_place_edit', {'id': place.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+            <article class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ place.name }}</h2>
+                        <span class="badge text-bg-info">{{ place.type.value }}</span>
+                        {% for category in place.categories %}
+                            <span class="badge bg-primary">{{ category.name }}</span>
+                        {% endfor %}
+                        <p class="card-text">{{ place.description }}</p>
+                        <a href="{{ path('app_place_show', {slug: place.slug}) }}" class="btn btn-primary">Voir</a>
+                        <a href="{{ path('app_place_edit', {id: place.id}) }}" class="btn btn-secondary">Modifier</a>
+                    </div>
+                </div>
+            </article>
         {% endfor %}
-        </tbody>
-    </table>
+    </section>
 
-    <a href="{{ path('app_place_new') }}">Create new</a>
 {% endblock %}

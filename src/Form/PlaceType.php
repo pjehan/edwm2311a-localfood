@@ -24,16 +24,17 @@ class PlaceType extends AbstractType
                 'class' => Type::class,
                 'choice_label' => 'value',
             ])
-            ->add('address')
             ->add('categories', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => true,
+                'expanded' => true,
             ])
             ->add('owner', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'email',
             ])
+            ->add('address')
             ->add('city', EntityType::class, [
                 'class' => City::class,
                 'choice_label' => 'name',
