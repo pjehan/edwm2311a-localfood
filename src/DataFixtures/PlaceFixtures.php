@@ -15,6 +15,8 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $clarisseGarden = new Place();
         $clarisseGarden->setName('Jardin de Clarisse');
         $clarisseGarden->setDescription('Un jardin magnifique où il fait bon se promener');
+        $clarisseGarden->setAddress('12 rue de la Paix');
+        $clarisseGarden->setCity($this->getReference('rennes'));
         $clarisseGarden->setType(Type::Producer);
         $clarisseGarden->setOwner($this->getReference('john_doe'));
         $clarisseGarden->addCategory($this->getReference('fruits_and_vegetables'));
@@ -24,6 +26,8 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $janeBakery = new Place();
         $janeBakery->setName('Boulangerie de Jane');
         $janeBakery->setDescription('Une boulangerie où l\'on trouve les meilleurs pains de la ville');
+        $janeBakery->setAddress('8 rue de la Liberté');
+        $janeBakery->setCity($this->getReference('rennes'));
         $janeBakery->setType(Type::PointOfSale);
         $janeBakery->setOwner($this->getReference('jane_doe'));
         $janeBakery->addCategory($this->getReference('dairy_products'));
@@ -33,6 +37,8 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
         $janeOrchard = new Place();
         $janeOrchard->setName('Verger de Jane');
         $janeOrchard->setDescription('Un verger où l\'on peut cueillir des fruits et des légumes');
+        $janeOrchard->setAddress('4 rue de la Liberté');
+        $janeOrchard->setCity($this->getReference('nantes'));
         $janeOrchard->setType(Type::Producer);
         $janeOrchard->setOwner($this->getReference('jane_doe'));
         $janeOrchard->addCategory($this->getReference('fruits_and_vegetables'));
@@ -45,7 +51,8 @@ class PlaceFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
-            CategoryFixtures::class
+            CategoryFixtures::class,
+            CityFixtures::class
         ];
     }
 }
