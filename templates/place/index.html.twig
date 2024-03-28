@@ -12,18 +12,7 @@
     <section class="row">
         {% for place in places %}
             <article class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ place.name }}</h2>
-                        <span class="badge text-bg-info">{{ place.type.value }}</span>
-                        {% for category in place.categories %}
-                            <span class="badge bg-primary">{{ category.name }}</span>
-                        {% endfor %}
-                        <p class="card-text">{{ place.description }}</p>
-                        <a href="{{ path('app_place_show', {slug: place.slug}) }}" class="btn btn-primary">Voir</a>
-                        <a href="{{ path('app_place_edit', {id: place.id}) }}" class="btn btn-secondary">Modifier</a>
-                    </div>
-                </div>
+                {% include 'place/_card.html.twig' with { 'place': place } only %}
             </article>
         {% endfor %}
     </section>
