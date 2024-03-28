@@ -29,6 +29,8 @@
                         <li class="nav-item">
                             <a class="nav-link {{ is_active('app_place') }}" href="{{ path('app_place_index') }}">Lieux</a>
                         </li>
+                        <!-- dropdown for places categories -->
+                        {{ render(controller('App\\Controller\\MainController::dropdownCategories')) }}
                     </ul>
                 </div>
             </div>
