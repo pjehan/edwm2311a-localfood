@@ -20,6 +20,7 @@ class UserFixtures extends Fixture
         $admin->setEmail('pierre.jehan@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->hashPassword($admin, 'admin'));
+        $admin->setLastLoginAt(new \DateTimeImmutable());
         $manager->persist($admin);
         $this->addReference('admin', $admin);
 
@@ -27,6 +28,7 @@ class UserFixtures extends Fixture
         $johnDoe->setEmail('john.doe@gmail.com');
         $johnDoe->setRoles(['ROLE_USER']);
         $johnDoe->setPassword($this->passwordEncoder->hashPassword($johnDoe, 'john'));
+        $johnDoe->setLastLoginAt(new \DateTimeImmutable('yesterday'));
         $manager->persist($johnDoe);
         $this->addReference('john_doe', $johnDoe);
 
@@ -34,6 +36,7 @@ class UserFixtures extends Fixture
         $janeDoe->setEmail('jane.doe@gmail.com');
         $janeDoe->setRoles(['ROLE_USER']);
         $janeDoe->setPassword($this->passwordEncoder->hashPassword($janeDoe, 'jane'));
+        $janeDoe->setLastLoginAt(new \DateTimeImmutable('-1 year'));
         $manager->persist($janeDoe);
         $this->addReference('jane_doe', $janeDoe);
 
