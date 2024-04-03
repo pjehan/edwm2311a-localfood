@@ -1,4 +1,5 @@
 <?php
+// src/Scheduler/Handler/CheckUserAccountsHandler.php
 
 namespace App\Scheduler\Handler;
 
@@ -18,12 +19,6 @@ class CheckUserAccountsHandler
     public function __invoke(CheckUserAccounts $message)
     {
         $users = $this->userRepository->findInactiveUsers();
-        $email = (new Email())
-            ->from('no-reply@localfood.com')
-            ->to('pierre.jehan@gmail.com')
-            ->subject('Your account is inactive')
-            ->text('Your account has been inactive for a year. Please log in to keep it active.');
-        $this->mailer->send($email);
         foreach ($users as $user) {
             // send an email to the user
             $email = (new Email())
